@@ -29,7 +29,7 @@ class Sort
      * 生成近有序的一个数组
      * @param int $len   需要生成的数组的长度
      * @param int $swap_times 需要调整的数次数
-     * @return array
+     * @return array 生成的数组
      */
     public static function generateNearArray(int $len, int $swap_times)
     {
@@ -45,4 +45,47 @@ class Sort
         }
         return $arr;
     }
+
+    /**
+     * 测试排序的情况
+     * @param $function_name  函数名
+     * @param $arr  要排序的数组
+     */
+    public static function testArray($function_name,$arr)
+    {
+        $start = self::microtimeFloat();
+        $sort_arr = call_user_func($function_name,$arr);
+        $end = self::microtimeFloat();
+        if(!self::verifySort($sort_arr)){
+            die('排序出错，没有正确排序');
+        }
+        echo sprintf("%s\t数组长度%s\t用时：%s",$function_name,count($arr),($end - $start)).PHP_EOL;
+    }
+
+    /**
+     * 生成时间
+     * @return float
+     */
+    public static function microtimeFloat()
+    {
+        list($usec, $sec) = explode(" ", microtime());
+        return ((float)$usec + (float)$sec);
+    }
+
+    /**
+     * 验证数组是否已经是有序的数组
+     * @param $arr
+     * @return bool
+     */
+    public static function verifySort($arr)
+    {
+        $len = count($arr);
+        for($i = 1; $i < $len; $i++){
+            if($arr[$i-1] > $arr[$i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
