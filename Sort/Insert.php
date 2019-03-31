@@ -28,6 +28,9 @@ class Insert
                 if($arr[$j-1] > $arr[$j]){
                     list($arr[$j-1], $arr[$j]) = [$arr[$j], $arr[$j-1]];
                 }
+                else {    // 提前结束循环。对于偏于有序的数组速度会有所提升
+                    break;
+                }
             }
         }
         return $arr;

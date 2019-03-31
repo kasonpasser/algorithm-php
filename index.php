@@ -8,6 +8,7 @@
 require_once "config.php";
 
 $arr = Helper\Sort::generateArray(10000,100);
+$arr = Helper\Sort::generateNearArray(10000,60);
 
 Helper\Sort::testArray('Sort\\Select::main',$arr);
 
