@@ -11,4 +11,5 @@ $arr = Helper\Sort::generateArray(10000,100);
 
 Helper\Sort::testArray('Sort\\Select::main',$arr);
 
+Helper\Sort::testArray('Sort\\Insert::main',$arr);
 
