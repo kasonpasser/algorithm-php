@@ -8,9 +8,10 @@
 require_once "config.php";
 
 $arr = Helper\Sort::generateArray(10000,100);
-$arr = Helper\Sort::generateNearArray(10000,60);
+$arr = Helper\Sort::generateNearArray(10,1);
 
 Helper\Sort::testArray('Sort\\Select::main',$arr);
 
-Helper\Sort::testArray('Sort\\Insert::main',$arr);
+//Helper\Sort::testArray('Sort\\Insert::main',$arr);
+Helper\Sort::testArray('Sort\\Bubble::main',$arr);
 
