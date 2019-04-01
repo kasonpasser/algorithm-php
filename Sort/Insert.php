@@ -24,11 +24,14 @@ class Insert
     {
         $len = count($arr);
         for( $i=1; $i < $len; $i++){
+            $tmp = $arr[$i];
             for($j = $i; $j > 0; $j--){
-                if($arr[$j-1] > $arr[$j]){
-                    list($arr[$j-1], $arr[$j]) = [$arr[$j], $arr[$j-1]];
+                if($arr[$j-1] > $tmp){
+                    $arr[$j] = $arr[$j-1];
+                   // list($arr[$j-1], $arr[$j]) = [$arr[$j], $arr[$j-1]];
                 }
                 else {    // 提前结束循环。对于偏于有序的数组速度会有所提升
+                    $arr[$j] = $tmp;
                     break;
                 }
             }
