@@ -23,10 +23,14 @@ class Select
     {
         $len = count($arr);
         for($i = 0; $i < $len; $i++){
+            $min_index = $i;
             for($j = $i+1; $j < $len; $j++){
-                if($arr[$i] > $arr[$j]){
-                    list($arr[$i], $arr[$j]) = [$arr[$j], $arr[$i]];
+                if($arr[$min_index] > $arr[$j]){
+                    $min_index = $j;
                 }
+            }
+            if($min_index != $i){
+                list($arr[$i], $arr[$min_index]) = [$arr[$min_index], $arr[$i]];
             }
         }
         return $arr;
